@@ -1,0 +1,1 @@
+window.alert("You opened the page!");
