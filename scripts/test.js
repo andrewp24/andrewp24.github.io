@@ -1,1 +1,1 @@
-window.alert("You opened the page!");
+//window.alert("You opened the page!");
