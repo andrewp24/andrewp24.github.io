@@ -21,7 +21,7 @@ function stopTimer(){
     formattedTime.push(getFormattedTime(logs));
     
     clearInterval(myTimer);
-    console.log(formattedTime);
+    //console.log(formattedTime);
     
     if (timesStopped == 1){
         document.getElementById("time1").innerHTML = formattedTime;
@@ -75,8 +75,8 @@ function getFormattedTime(logs){
 }
 
 function setTextColor(seconds){
-    console.log("in setTextColor")
-    console.log(seconds);
+    //console.log("in setTextColor")
+    //console.log(seconds);
     if (seconds >= 10){
         document.getElementById("timer_time").style.color = "red";
     } else if (seconds >= 5){
