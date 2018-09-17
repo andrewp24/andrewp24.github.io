@@ -17,19 +17,16 @@ window.onload = function(){
 }
 
 function startTimer(){
-    
     //makes sure more intervals aren't created.
     if (isSet == true){
         alert("You have already started the timer. Press stop and then start if you want to start it again.");
     } else {
         myTimer = setInterval(setTimer, 1000);
     }
-
     isSet = true;
 }
 
 function stopTimer(){
-
     //makes sure invalid numbers aren't added to the array. (must have the timer started to stop it.)
     if (isSet == false){
         alert("The timer is already stopped.")
@@ -41,11 +38,18 @@ function stopTimer(){
         //needed in order to restart the timer correctly.
         totalSeconds = 0;
         
-        formattedTime.push(getFormattedTime(logs));
+        //will purge the older saved time if it would be the 6th time.
+        if (formattedTime.length >= 5){
+            formattedTime.shift();
+            formattedTime.push(getFormattedTime(logs));
+        } else {
+            formattedTime.push(getFormattedTime(logs));
+        }
         
         clearInterval(myTimer);
         myTimer = null;
 
+        //sets the last 5 times in the correct spots. top is most recent, bottom is least recent.
         if (timesStopped == 1){
             document.getElementById("time1").innerHTML = formattedTime;
         }
@@ -67,9 +71,8 @@ function stopTimer(){
             document.getElementById("time3").innerHTML = formattedTime[formattedTime.length-3];
             document.getElementById("time4").innerHTML = earlierTime;
         }
-        else if (timesStopped == 5 ){
+        else if (timesStopped >= 5 ){
             earlierTime = formattedTime[formattedTime.length-5];
-            earlierTime = formattedTime[formattedTime.length-4];
             document.getElementById("time1").innerHTML = formattedTime[formattedTime.length-1];
             document.getElementById("time2").innerHTML = formattedTime[formattedTime.length-2];
             document.getElementById("time3").innerHTML = formattedTime[formattedTime.length-3];
@@ -104,8 +107,6 @@ function getFormattedTime(logs){
 }
 
 function setTextColor(seconds){
-    //console.log("in setTextColor")
-    //console.log(seconds);
     if (seconds >= REDCOLORSECONDS){
         document.getElementById("timer_time").style.color = "red";
     } else if (seconds >= ORANGECOLORSECONDS){
