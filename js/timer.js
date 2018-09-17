@@ -190,11 +190,11 @@ function deleteCookies(){
     var d = new Date(); //Create an date object
     d.setTime(d.getTime() - (1000*60*60*24)); //Set the time to the past. 1000 milliseonds = 1 second
     var expires = "expires=" + d.toGMTString(); //Compose the expiration date
-    window.document.cookie = timesStopped+"="+"; "+expires;//Set the cookie with name and the expiration date
-    window.document.cookie = time1+"="+"; "+expires;//Set the cookie with name and the expiration date
-    window.document.cookie = time2+"="+"; "+expires;//Set the cookie with name and the expiration date
-    window.document.cookie = time3+"="+"; "+expires;//Set the cookie with name and the expiration date
-    window.document.cookie = time4+"="+"; "+expires;//Set the cookie with name and the expiration date
-    window.document.cookie = time5+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = "timesStopped"+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = "time1"+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = "time2"+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = "time3"+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = "time4"+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = "time5"+"="+"; "+expires;//Set the cookie with name and the expiration date
     window.location.reload();
 }
