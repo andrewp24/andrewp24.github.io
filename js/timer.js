@@ -22,28 +22,28 @@ window.onload = function(){
 
     alert("This page is using cookies to save your last 5 times.");
     //should be able to replace this with cookie itself
-    if (returningUser = confirm("Have you used this previously? Press OK for Yes or Cancel for No.")){
+    //if (returningUser = confirm("Have you used this previously? Press OK for Yes or Cancel for No.")){
         //user is returning
-        timesStopped = getCookie("timesStopped");
-        time1 = getCookie("time1");
-        time2 = getCookie("time2");
-        time3 = getCookie("time3");
-        time4 = getCookie("time4");
-        time5 = getCookie("time5");
+        timesStopped = getCookie("timesStopped", 0);
+        time1 = getCookie("time1", 1);
+        time2 = getCookie("time2", 1);
+        time3 = getCookie("time3", 1);
+        time4 = getCookie("time4", 1);
+        time5 = getCookie("time5", 1);
         
         document.getElementById("time1").innerHTML = time1;
         document.getElementById("time2").innerHTML = time2;
         document.getElementById("time3").innerHTML = time3;
         document.getElementById("time4").innerHTML = time4;
         document.getElementById("time5").innerHTML = time5;
-    } else{
+    //} else{
         //first visit for user.
-        document.getElementById("time1").innerHTML = time1;
-        document.getElementById("time2").innerHTML = time2;
-        document.getElementById("time3").innerHTML = time3;
-        document.getElementById("time4").innerHTML = time4;
-        document.getElementById("time5").innerHTML = time5;
-    }
+        //document.getElementById("time1").innerHTML = time1;
+        //document.getElementById("time2").innerHTML = time2;
+        //document.getElementById("time3").innerHTML = time3;
+        //document.getElementById("time4").innerHTML = time4;
+        //document.getElementById("time5").innerHTML = time5;
+    //}
 }
 
 function startTimer(){
@@ -161,7 +161,7 @@ function setCookie(cname,cvalue,exdays){
     window.document.cookie = cname+"="+cvalue+"; "+expires;//Set the cookie with value and the expiration date
 }
 
-function getCookie(cname) {
+function getCookie(cname,checker) {
     var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
     var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
     console.log(cArr);
@@ -172,7 +172,11 @@ function getCookie(cname) {
         if (c.indexOf(name) == 0) 
             return c.substring(name.length, c.length);
     }
-     
-    //If we get to this point, that means the cookie wasn't find in the look, we return an empty string.
-    return "";
+    //If we get to this point, that means the cookie wasn't find in the look, we return an empty string. if checker is 0 we are looking at timesStopped.
+    if (checker == 0){
+        return "0";
+    } else {
+        return "0h 0m 0s";
+    }
+    
 }
