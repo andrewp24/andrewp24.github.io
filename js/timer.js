@@ -22,28 +22,24 @@ window.onload = function(){
 
     alert("This page is using cookies to save your last 5 times.");
     //should be able to replace this with cookie itself
-    //if (returningUser = confirm("Have you used this previously? Press OK for Yes or Cancel for No.")){
-        //user is returning
-        timesStopped = getCookie("timesStopped", 0);
-        time1 = getCookie("time1", 1);
-        time2 = getCookie("time2", 1);
-        time3 = getCookie("time3", 1);
-        time4 = getCookie("time4", 1);
-        time5 = getCookie("time5", 1);
-        
-        document.getElementById("time1").innerHTML = time1;
-        document.getElementById("time2").innerHTML = time2;
-        document.getElementById("time3").innerHTML = time3;
-        document.getElementById("time4").innerHTML = time4;
-        document.getElementById("time5").innerHTML = time5;
-    //} else{
-        //first visit for user.
-        //document.getElementById("time1").innerHTML = time1;
-        //document.getElementById("time2").innerHTML = time2;
-        //document.getElementById("time3").innerHTML = time3;
-        //document.getElementById("time4").innerHTML = time4;
-        //document.getElementById("time5").innerHTML = time5;
-    //}
+    timesStopped = getCookie("timesStopped", 0);
+    time1 = getCookie("time1", 1);
+    time2 = getCookie("time2", 1);
+    time3 = getCookie("time3", 1);
+    time4 = getCookie("time4", 1);
+    time5 = getCookie("time5", 1);
+    
+    document.getElementById("time1").innerHTML = time1;
+    formattedTime[0] = time1;
+    document.getElementById("time2").innerHTML = time2;
+    formattedTime[1] = time2;
+    document.getElementById("time3").innerHTML = time3;
+    formattedTime[2] = time3;
+    document.getElementById("time4").innerHTML = time4;
+    formattedTime[3] = time4;
+    document.getElementById("time5").innerHTML = time5;
+    formattedTime[4] = time5;
+
 }
 
 function startTimer(){
