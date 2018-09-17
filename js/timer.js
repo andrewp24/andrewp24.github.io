@@ -20,6 +20,7 @@ window.onload = function(){
     logs = new Array;
     formattedTime = new Array;
 
+    alert("This pae is using cookies to save your last 5 times.");
     //should be able to replace this with cookie itself
     if (returningUser = confirm("Have you used this previously? Press OK for Yes or Cancel for No.")){
         //user is returning
