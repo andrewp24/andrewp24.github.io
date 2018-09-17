@@ -1,91 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50420421-3"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-        
-            gtag('config', 'UA-50420421-3');
-        </script>
-        <title>Andrew Peterson</title>
-        <!--Let browser know website is optimized for mobile-->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <!--Import Google Icon Font and set CSS-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-        <!--<link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>-->
-        <link rel="icon" href="images/favicon.ico" />
-        <script type="text/javascript" src="js/timer.js"></script>
-    </head>
 
-    <body>
-        <nav class="black" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Andrew</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="pastwork.html">Past Work</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="jsapp.html">JavaScript App</a></li>
-                </ul>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-50420421-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-                <ul id="nav-mobile" class="sidenav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="pastwork.html">Past Work</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="jsapp.html">JavaScript App</a></li>
-                </ul>
-                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        gtag('config', 'UA-50420421-3');
+    </script>
+    <title>Andrew Peterson</title>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Import Google Icon Font and set CSS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!--<link type="text/css" rel="stylesheet" href="css/style.css"  media="screen,projection"/>-->
+    <link rel="icon" href="images/favicon.ico" />
+    <script type="text/javascript" src="js/timer.js"></script>
+</head>
+
+<body>
+    <nav class="black" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Andrew</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="pastwork.html">Past Work</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="jsapp.html">JavaScript App</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="/">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="pastwork.html">Past Work</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="jsapp.html">JavaScript App</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <h1 class="header center yellow-text text-darken-2">Timer App</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Click the buttons to start or stop the timer. It will save the past 5
+                    times.</h5>
             </div>
-        </nav>
+            <div class="row center">
+                <a id="timer-start-button" class="btn-large waves-effect waves-light green darken-2">Start the timer</a>
+            </div>
+            <div class="timer time">
+                <h1 id="timer_time" class="header center ">0h 0m 0s</h1>
+            </div>
+            <div class="row center">
+                <br>
+                <a id="timer-stop-button" class="btn-large waves-effect waves-light red darken-2">Stop the Timer</a>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+
+    <footer class="page-footer yellow darken-2">
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
-                    <br><br>
-                    <h1 class="header center yellow-text text-darken-2">Timer App</h1>
-                    <div class="row center">
-                    <h5 class="header col s12 light">Click the buttons to start or stop the timer. It will save the past 5 times.</h5>
+                <div class="row center">
+                    <h5 id="previous_timers" class="header col s12 light">Last 5 times</h5>
+                    <h6 id="time1" class="header col s12 light">0h 0m 0s</h6>
+                    <h6 id="time2" class="header col s12 light">0h 0m 0s</h6>
+                    <h6 id="time3" class="header col s12 light">0h 0m 0s</h6>
+                    <h6 id="time4" class="header col s12 light">0h 0m 0s</h6>
+                    <h6 id="time5" class="header col s12 light">0h 0m 0s</h6>
                 </div>
                 <div class="row center">
-                    <a id="timer-start-button" class="btn-large waves-effect waves-light green darken-2">Start the timer</a>
+                    <a id="delete-cookies-button" class="btn-small waves-effect waves-light red darken-2">Delete all
+                        cookies</a>
                 </div>
-                <div class="timer time">
-                    <h1 id="timer_time" class="header center ">0h 0m 0s</h1>
-                </div>
-                <div class="row center">
-                    <br>
-                    <a id="timer-stop-button" class="btn-large waves-effect waves-light red darken-2">Stop the Timer</a>
-                </div>
-                <br><br>
-        
             </div>
         </div>
-        
-        <footer class="page-footer yellow darken-2">
-                <div class="section no-pad-bot" id="index-banner">
-                    <div class="container">
-                        <div class="row center">
-                            <h5 id="previous_timers" class="header col s12 light">Last 5 times</h5>
-                            <h6 id="time1" class="header col s12 light">0h 0m 0s</h6>
-                            <h6 id="time2" class="header col s12 light">0h 0m 0s</h6>
-                            <h6 id="time3" class="header col s12 light">0h 0m 0s</h6>
-                            <h6 id="time4" class="header col s12 light">0h 0m 0s</h6>
-                            <h6 id="time5" class="header col s12 light">0h 0m 0s</h6>
-                        </div>
-                        <div class="row center">
-                            <a id="delete-cookies-button" class="btn-small waves-effect waves-light red darken-2">Delete all cookies</a>
-                        </div>
-                    </div>
-                </div>
-        </footer>
-            <!--JavaScript at end of body for optimized loading-->
-            <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-            <script type="text/javascript" src="js/materialize.min.js"></script>
-            <script type="text/javascript" src="js/init.js"></script>
-        </body>
-    </html>
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+</body>
+
+</html>
