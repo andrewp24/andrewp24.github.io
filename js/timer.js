@@ -2,18 +2,47 @@ window.onload = function(){
     document.getElementById("timer-start-button").onclick = function() {startTimer()};
     document.getElementById("timer-stop-button").onclick = function() {stopTimer()};
     document.getElementById("timer_time").style.color = "green";
-
+    
     REDCOLORSECONDS = 15;
     ORANGECOLORSECONDS = 8;
 
     totalSeconds = 0;
     timesStopped = 0;
+    time1 = "0h 0m 0s";
+    time2 = "0h 0m 0s";
+    time3 = "0h 0m 0s";
+    time4 = "0h 0m 0s";
+    time5 = "0h 0m 0s";
 
     myTimer = null;
     isSet = false;
 
     logs = new Array;
     formattedTime = new Array;
+
+    //should be able to replace this with cookie itself
+    if (returningUser = confirm("Have you used this previously? Press OK for Yes or Cancel for No.")){
+        //user is returning
+        timesStopped = getCookie("timesStopped");
+        time1 = getCookie("time1");
+        time2 = getCookie("time2");
+        time3 = getCookie("time3");
+        time4 = getCookie("time4");
+        time5 = getCookie("time5");
+        
+        document.getElementById("time1").innerHTML = time1;
+        document.getElementById("time2").innerHTML = time2;
+        document.getElementById("time3").innerHTML = time3;
+        document.getElementById("time4").innerHTML = time4;
+        document.getElementById("time5").innerHTML = time5;
+    } else{
+        //first visit for user.
+        document.getElementById("time1").innerHTML = time1;
+        document.getElementById("time2").innerHTML = time2;
+        document.getElementById("time3").innerHTML = time3;
+        document.getElementById("time4").innerHTML = time4;
+        document.getElementById("time5").innerHTML = time5;
+    }
 }
 
 function startTimer(){
@@ -31,7 +60,7 @@ function stopTimer(){
     if (isSet == false){
         alert("The timer is already stopped.")
     } else {
-            var earlierTime = "";
+        var earlierTime = "";
         timesStopped++;
         logs.push(totalSeconds);
 
@@ -80,6 +109,14 @@ function stopTimer(){
             document.getElementById("time5").innerHTML = earlierTime;
         }
 
+        //setting cookies here.
+        setCookie("timesStopped", timesStopped, 30);
+        setCookie("time1", document.getElementById("time1").innerHTML, 30);
+        setCookie("time2", document.getElementById("time2").innerHTML, 30);
+        setCookie("time3", document.getElementById("time3").innerHTML, 30);
+        setCookie("time4", document.getElementById("time4").innerHTML, 30);
+        setCookie("time5", document.getElementById("time5").innerHTML, 30);
+
         //resets the timer to 0h 0m 0s
         document.getElementById("timer_time").innerHTML = "0h 0m 0s";
         isSet = false;
@@ -114,4 +151,27 @@ function setTextColor(seconds){
     } else {
         document.getElementById("timer_time").style.color = "green";
     }
+}
+
+function setCookie(cname,cvalue,exdays){
+    var d = new Date(); //Create an date object
+    d.setTime(d.getTime() + (exdays*1000*60*60*24)); //Set the time to exdays from the current date in milliseconds. 1000 milliseonds = 1 second
+    var expires = "expires=" + d.toGMTString(); //Compose the expirartion date
+    window.document.cookie = cname+"="+cvalue+"; "+expires;//Set the cookie with value and the expiration date
+}
+
+function getCookie(cname) {
+    var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
+    var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
+    console.log(cArr);
+    //Loop through the cookies and return the cookie value if it finds the cookie name
+    for(var i=0; i<cArr.length; i++) {
+        var c = cArr[i].trim();
+        //If the name is the cookie string at position 0, we found the cookie and return the cookie value
+        if (c.indexOf(name) == 0) 
+            return c.substring(name.length, c.length);
+    }
+     
+    //If we get to this point, that means the cookie wasn't find in the look, we return an empty string.
+    return "";
 }
