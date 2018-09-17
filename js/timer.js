@@ -1,6 +1,7 @@
 window.onload = function(){
     document.getElementById("timer-start-button").onclick = function() {startTimer()};
     document.getElementById("timer-stop-button").onclick = function() {stopTimer()};
+    document.getElementById("delete-cookies-button").onclick = function() {deleteCookies()};
     document.getElementById("timer_time").style.color = "green";
     
     REDCOLORSECONDS = 15;
@@ -19,9 +20,9 @@ window.onload = function(){
 
     logs = new Array;
     formattedTime = new Array;
-
-    alert("This page is using cookies to save your last 5 times.");
-    //should be able to replace this with cookie itself
+    
+    //These two blocks get the cookies. If there the user doesn't have cookies then it will set them as the default value
+    //The second block sets the array to what it should be from the cookies. 
     timesStopped = getCookie("timesStopped", 0);
     time1 = getCookie("time1", 1);
     time2 = getCookie("time2", 1);
@@ -39,6 +40,12 @@ window.onload = function(){
     formattedTime[3] = time4;
     document.getElementById("time5").innerHTML = time5;
     formattedTime[4] = time5;
+
+    //will display alert if the user doesnt have cookies. 
+    if (timesStopped == 0){
+        alert("This page is using cookies to save your last 5 times.");
+    }
+    
 
 }
 
@@ -150,6 +157,7 @@ function setTextColor(seconds){
     }
 }
 
+//creates the cookies. called after the user stops the timer.
 function setCookie(cname,cvalue,exdays){
     var d = new Date(); //Create an date object
     d.setTime(d.getTime() + (exdays*1000*60*60*24)); //Set the time to exdays from the current date in milliseconds. 1000 milliseonds = 1 second
@@ -157,6 +165,7 @@ function setCookie(cname,cvalue,exdays){
     window.document.cookie = cname+"="+cvalue+"; "+expires;//Set the cookie with value and the expiration date
 }
 
+//gets the cookie data
 function getCookie(cname,checker) {
     var name = cname + "="; //Create the cookie name variable with cookie name concatenate with = sign
     var cArr = window.document.cookie.split(';'); //Create cookie array by split the cookie by ';'
@@ -174,5 +183,18 @@ function getCookie(cname,checker) {
     } else {
         return "0h 0m 0s";
     }
-    
+}
+
+//deletes the set cookies.
+function deleteCookies(){
+    var d = new Date(); //Create an date object
+    d.setTime(d.getTime() - (1000*60*60*24)); //Set the time to the past. 1000 milliseonds = 1 second
+    var expires = "expires=" + d.toGMTString(); //Compose the expiration date
+    window.document.cookie = timesStopped+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = time1+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = time2+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = time3+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = time4+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.document.cookie = time5+"="+"; "+expires;//Set the cookie with name and the expiration date
+    window.location.reload();
 }
