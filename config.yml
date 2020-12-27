@@ -1,7 +1,0 @@
-name: Eduhealthca.org
-url: http://eduhealthca.org
-kramdown:
-  input: GFM
-  auto_ids: true
-  hard_wrap: false
-  syntax_highlighter: rouge
