@@ -1,7 +1,29 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
-<p>{{ page.date | date_to_string }} - {{ page.author }}</p>
-
-{{ content }}
+<main role="main">
+    <div class="container-md">
+        <div class="jumbotron">
+            <p></p>
+            <p class="lead text-center">{{ page.author }} wrote this on</p>
+            <p class="text-center"><small class="text-muted">{{ page.date | date_to_string }}</small></p>
+            <hr class="my-4">
+            <h4 class="mt-0">{{ page.title }}</h4>
+            <p></p>
+            <div class="media">
+                {{ content }}
+            </div>
+        </div>
+        <hr class="my-4">
+        <p class="font-weight-bold">Read another one of my posts below.</p>
+        <div class="list-group">
+            {% for post in site.posts %}
+            {% if page.title == post.title %}
+            <a class="list-group-item list-group-item-action active" href="{{ post.url }}">{{ post.title }}</a>
+            {% else %}
+            <a class="list-group-item list-group-item-action" href="{{ post.url }}">{{ post.title }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</main>
