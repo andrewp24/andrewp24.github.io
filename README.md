@@ -1,5 +1,3 @@
-# www.eduhealthca.org
+# andrew peterson
 
-The website for the non-profit, AECHA Inc.
-
-Originally written and deployed by David Earles. Now run by and adapted by Andrew Peterson. 
+my personal website
