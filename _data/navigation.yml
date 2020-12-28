@@ -1,10 +1,12 @@
-- link: /updates
+- link: /doing
   name: what im doing
-- link: /about
+- link: /certs
+  name: certifications/skills
+- link: /did
   name: what i did
-- link: /partnerships
+- link: /education
   name: education
 - link: /contact
-  name: contact me/links
+  name: contact me
 - link: /files
-  name: files
+  name: files/links
