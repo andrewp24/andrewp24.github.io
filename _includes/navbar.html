@@ -1,36 +1,21 @@
 <!-- NAVBAR -->
 <header>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">
-            <img src="/images/icon.ico" width="30" height="30" class="d-inline-block align-top" alt="aehca inc logo" />
-            AEHCA Inc
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                {% for item in site.data.navigation %}
-                <li class="nav-item active">
-                    {% if item.name == 'Terms' or item.name == 'Privacy' %}
-                    <a class="nav-link text-info " href="{{ item.link }}">{{ item.name }}</a>
-                    {% elsif item.name =='Latest Updates' %}
-                    <a class="nav-link text-info text-warning font-weight-bold"
-                        href="{{ item.link }}">{{ item.name }}</a>
-                    {% else %}
-                    <a class="nav-link text-info text-warning" href="{{ item.link }}">{{ item.name }}</a>
-                    {% endif %}
-                </li>
-                {% endfor %}
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                <!-- GOOGLE TRANSLATE BUTTON-->
-                <li>
-                    <div id="google_translate_element"></div>
-                </li>
-                <!-- END GOOGLE TRANSLATE BUTTON-->
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-warning" href="/">andrew</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    {% for item in site.data.navigation %}
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ item.link }}">{{ item.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </nav>
 </header>
