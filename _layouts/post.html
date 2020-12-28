@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-{% include ganalytics.html %}
-{% include head.html %}
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<p>{{ page.date | date_to_string }} - {{ page.author }}</p>
 
-<body>
-    {% include navbar.html %}
-    {{ content }}
-    {% include footer.html %}
-    {% include endscripts.html %}
-</body>
-
-</html>
+{{ content }}
