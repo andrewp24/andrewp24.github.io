@@ -10,3 +10,5 @@
   name: contact me
 - link: /files
   name: files/links
+- link: /blog
+  name: blog
