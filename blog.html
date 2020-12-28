@@ -2,13 +2,26 @@
 layout: default
 title: Blog
 ---
-<h1>Latest Posts</h1>
-
-<ul>
-    {% for post in site.posts %}
-    <li>
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        {{ post.excerpt }}
-    </li>
-    {% endfor %}
-</ul>
+<main role="main">
+    <div class="container-md">
+        <div class="jumbotron">
+            <p></p>
+            <p class="lead text-center">{{ page.title }}</p>
+            <p></p>
+            <hr class="my-4">
+            <p></p>
+            <div class="media">
+                <ul>
+                    {% for post in site.posts %}
+                    <li>
+                        <h4><a href="{{ post.url }}">{{ post.title }}</a></h4>
+                        {{ post.excerpt }} <small class="text-muted"> Date posted: {{ post.date |
+                            date_to_string }}</small>
+                    </li>
+                    <hr class="my-4">
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
