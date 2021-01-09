@@ -41,5 +41,6 @@ Having certain people have a massive advantage to a significant portion of the c
 
 If the government were to recognize that the lower class and middle class workers would gain immensely in this economy from having better education without having to put unneeded stress and hardship on their lives, we could help the country thrive so much more. It would cost a lot of money. It would takes years to show a difference. But when we see the outcome of this, everyone's lives should improve. Not just the top 20% or the top 1%, but the top 100%.
 
+We should have a convo about it if you disagree though!
 
 **Disclaimer:** I don't idolize Amazon because of their extremely capitalistic ways of business. As I mentioned.. they're basically 1 of the 5 "winners of capitalism" which is super problematic! I think it is a good example of how business can relate to social needs in some interesting ways, though.
